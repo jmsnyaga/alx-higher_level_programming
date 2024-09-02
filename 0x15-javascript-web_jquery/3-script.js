@@ -1,7 +1,8 @@
-/**
- * Script that adds the class red to the <header>
- * element when the user clicks on the tag DIV#red_header
- */
-$('DIV#red_header').click(() => {
+$(document).ready(() => {
+  // Attach a click event to the red_header
+  $('#red_header').on('click', () => {
+    // Add the class 'red' to the <header> element
     $('header').addClass('red');
+  });
 });
+

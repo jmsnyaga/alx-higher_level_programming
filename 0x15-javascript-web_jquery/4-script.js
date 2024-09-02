@@ -1,7 +1,11 @@
-/**
- * Script that toggles the class of the <header>
- * element when the user clicks on the tag DIV#toggle_header
- */
-$('DIV#toggle_header').click(() => {
-    $('header').toggleClass('red green');
-});
+$(document).ready(() => {
+    // Attach a click event handler to the toggle_header
+    $('#toggle_header').on('click', () => {
+      // Toggle the class between 'red' and 'green' on the <header> element
+      if ($('header').hasClass('red')) {
+        $('header').removeClass('red').addClass('green');
+      } else {
+        $('header').removeClass('green').addClass('red');
+      }
+    });
+  });

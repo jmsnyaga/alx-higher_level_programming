@@ -1,10 +1,7 @@
-/**
- * Script that fetches the character name from this
- * URL: https://swapi-api.hbtn.io/api/people/5/?format=json
- */
-$.ajax({
-    url: 'https://swapi-api.hbtn.io/api/people/5/?format=json',
-    success: result => {
-        $('DIV#character').text(result.name);
-    }
-});
+$(document).ready(() => {
+    // Perform GET request to fetch the character data
+    $.get('https://swapi-api.alx-tools.com/api/people/5/?format=json', (data) => {
+      // Update the text of the id="character" with the character name
+      $('#character').text(data.name);
+    });
+  });

@@ -1,8 +1,7 @@
-/**
- * Script that updates the text of the <header>
- * element to New Header!!! when the user clicks
- * on DIV#update_header
- */
-$('DIV#update_header').click(() => {
-    $('header').text('New Header!!!');
-});
+$(document).ready(() => {
+    // Attach a click event handler to the #update_header div
+    $('#update_header').on('click', () => {
+      // Update the text of the <header> element to "New Header!!!"
+      $('header').text('New Header!!!');
+    });
+  });

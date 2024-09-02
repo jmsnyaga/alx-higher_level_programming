@@ -1,7 +1,8 @@
-/**
- * Script that adds a <li> element to a list
- * when the user clicks on the tag DIV#add_item
- */
-$('DIV#add_item').click(() => {
-    $('ul.my_list').append('<li>Item</li>');
-});
+$(document).ready(() => {
+    // Attach a click event handler to the #add_item div
+    $('#add_item').on('click', () => {
+      // Append a new <li> element with the text "Item" to the <ul class="my_list">
+      $('ul.my_list').append('<li>Item</li>');
+    });
+  });
+  

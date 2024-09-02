@@ -1,23 +1,22 @@
-/**
- * Script that fetches and prints how to say “Hello” depending on the language
- *
- * translation fetched when the user clicks on INPUT#btn_translate
- * OR presses ENTER when the focus is on INPUT#language_code
- */
-function makeTranslate() {
-    const url = 'https://www.fourtonfish.com/hellosalut/?';
-    $.get(url + $.param({ lang: $('INPUT#language_code').val() }), (data) => {
-        $('DIV#hello').html(data.hello);
-    });
-}
+$(document).ready(() => {
+  function fetchTranslation() {
+    const langCode = $('#language_code').val();
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const apiUrl = `https://www.fourtonfish.com/hellosalut/hello/?lang=${langCode}`;
 
-$('document').ready(() => {
-    $('INPUT#btn_translate').click(makeTranslate);
-    $('INPUT#language_code').focus(() => {
-        $(this).keydown((e) => {
-            if (e.keyCode === 13) {
-                makeTranslate();
-            }
-        });
+    $.get(proxyUrl + apiUrl, (data) => {
+      $('#hello').text(data.hello);
     });
+  }
+
+  // Fetch translation on button click
+  $('#btn_translate').on('click', fetchTranslation);
+
+  // Fetch translation on Enter key press
+  $('#language_code').on('keypress', (event) => {
+    if (event.key === 'Enter') {
+      fetchTranslation();
+    }
+  });
 });
+

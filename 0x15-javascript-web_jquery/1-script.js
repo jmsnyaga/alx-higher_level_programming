@@ -1,4 +1,4 @@
-/**
- * Script that updates the text color of the <header>
- */
-$('header').css('color', '#FF0000');
+$(document).ready(() => {
+    $('header').css('color', '#FF0000');
+  });
+  

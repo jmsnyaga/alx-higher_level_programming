@@ -1,15 +1,16 @@
-/**
- * script that adds, removes and clears LI elements
- * from a list when the user clicks
- */
 $(document).ready(() => {
-    $('DIV#add_item').click(() => {
-        $('UL.my_list').append('<li> Item </li>');
+    // Add a new <li> element to the list when #add_item is clicked
+    $('#add_item').on('click', () => {
+      $('ul.my_list').append('<li>Item</li>');
     });
-    $('DIV#remove_item').click(() => {
-        $('UL.my_list li:last-child').remove();
+  
+    // Remove the last <li> element from the list when #remove_item is clicked
+    $('#remove_item').on('click', () => {
+      $('ul.my_list li:last-child').remove();
     });
-    $('DIV#clear_list').click(() => {
-        $('UL.my_list').empty();
+  
+    // Clear all <li> elements from the list when #clear_list is clicked
+    $('#clear_list').on('click', () => {
+      $('ul.my_list').empty();
     });
-});
+  });
