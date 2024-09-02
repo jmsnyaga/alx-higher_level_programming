@@ -1,4 +1,5 @@
-$(document).ready(() => {
-    $('header').css('color', '#FF0000');
-  });
-  
+#!/usr/bin/node
+
+$(document).ready(function() {
+	$("header").css("color", "#FF0000");
+});

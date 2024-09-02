@@ -1,12 +1,19 @@
-$(document).ready(() => {
-    // Attach a click event to the button #btn_translate
-    $('#btn_translate').on('click', () => {
-      // Language code
-      const langCode = $('#language_code').val();
-  
-      $.get(`https://www.fourtonfish.com/hellosalut/hello/?lang=${langCode}`, (data) => {
-        // Display the translation in the <div id="hello">
-        $('#hello').text(data.hello);
-      });
-    });
-  });
+#!/usr/bin/node 
+
+$(document).ready(function() {
+	$("#btn_translate").click(function() {
+		const languageCode = $("#language_code").val();
+
+		$.ajax({
+			url: "https://www.fourtonfish.com/hellosalut/hello/" + languageCode,
+			method: "GET",
+			dataType: "json",
+			success: function(data) {
+				$("#hello").text(data.hello);
+			},
+			error: function() {
+				$("#hello").text("Translation not found.");
+			}
+		});
+	});
+});

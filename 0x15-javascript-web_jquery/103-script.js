@@ -1,22 +1,25 @@
-$(document).ready(() => {
-  function fetchTranslation() {
-    const langCode = $('#language_code').val();
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const apiUrl = `https://www.fourtonfish.com/hellosalut/hello/?lang=${langCode}`;
+#!/usr/bin/node
 
-    $.get(proxyUrl + apiUrl, (data) => {
-      $('#hello').text(data.hello);
-    });
-  }
+$(document).ready(function() {
+	$("#btn_translate").click(fetchTranslation);
+	$("#language_code").keypress(function(event) {
+		if (event.which === 13) {
+			fetchTranslation();
+		}
+	});
 
-  // Fetch translation on button click
-  $('#btn_translate').on('click', fetchTranslation);
-
-  // Fetch translation on Enter key press
-  $('#language_code').on('keypress', (event) => {
-    if (event.key === 'Enter') {
-      fetchTranslation();
-    }
-  });
+	function fetchTranslation() {
+		const languageCode = $("#language_code").val();
+		$.ajax({
+			url: "https://www.fourtonfish.com/hellosalut/hello/" + languageCode,
+			method: "GET",
+			dataType: "json",
+			success: function(data) {
+				$("#hello").text(data.hello);
+			},
+			error: function() {
+				$("#hello").text("Translation not found.");
+			}
+		});
+	}
 });
-

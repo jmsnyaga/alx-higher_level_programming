@@ -1,9 +1,17 @@
-$(document).ready(() => {
-    // Perform GET request to fetch the list of movies
-    $.get('https://swapi-api.alx-tools.com/api/films/?format=json', (data) => {
-      // Loop through the movies and write the title to the list
-      data.results.forEach(movie => {
-        $('#list_movies').append(`<li>${movie.title}</li>`);
-      });
-    });
-  });
+#!/usr/bin/node
+
+$(document).ready(function() {
+	$.ajax({
+	url: "https://swapi-api.alx-tools.com/api/films/?format=json",
+	method: "GET",
+	dataType: "json",
+	success: function(data) {
+		$.each(data.results, function(index, movie) {
+			$("#list_movies").append("<li>" + movie.title + "</li>");
+		});
+	},
+	error: function() {
+		$("#list_movies").append("<li>Failed to fetch movie titles.</li>");
+	}
+	});
+});
