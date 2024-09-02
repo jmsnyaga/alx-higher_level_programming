@@ -1,7 +1,7 @@
-#!/usr/bin/node
-
-$(document)ready(function() {
-	$("#red_header")click(function() {
-		$("header").addClass("red");
-	});
+$('#red_header').on('click', () => {
+    if ($('header').hasClass('red')){
+        console.log('Its already red mate')
+    } else{
+        $('header').addClass('red');
+    }
 });

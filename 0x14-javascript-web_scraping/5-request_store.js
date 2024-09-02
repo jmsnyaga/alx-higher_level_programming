@@ -1,4 +1,9 @@
 #!/usr/bin/node
+
+const req = require('request');
 const fs = require('fs');
-const request = require('request');
-request(process.argv[2]).pipe(fs.createWriteStream(process.argv[3]));
+const url = process.argv[2];
+const Fname = process.argv[3];
+req
+  .get(url)
+  .pipe(fs.createWriteStream(Fname));

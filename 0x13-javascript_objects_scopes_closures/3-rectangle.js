@@ -1,21 +1,17 @@
 #!/usr/bin/node
-class Rectangle {
+
+module.exports = class Rectangle {
   constructor (w, h) {
     if ((w > 0) && (h > 0)) {
-      this.width = w;
-      this.height = h;
+      [this.width, this.height] = [w, h];
     }
   }
 
   print () {
-    for (let i = 0; i < this.height; i++) {
-      let s = '';
-      for (let j = 0; j < this.width; j++) {
-        s += 'X';
-      }
-      console.log(s);
+    let sizeY = this.height;
+    while (sizeY > 0) {
+      console.log('X'.repeat(this.width));
+      sizeY -= 1;
     }
   }
-}
-
-module.exports = Rectangle;
+};

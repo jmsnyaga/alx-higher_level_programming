@@ -1,7 +1,3 @@
-#!/usr/bin/node
-
-$(document).ready(function() {
-	$("#toggle_header").click(function() {
-		$("header").toggleClass("red green");
-	});
+$('#toggle_header').on('click', () => {
+    $('header').toggleClass('red green');
 });

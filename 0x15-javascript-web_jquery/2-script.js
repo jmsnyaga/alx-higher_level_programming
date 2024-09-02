@@ -1,7 +1,3 @@
-#!/usr/bin/node
-
-$(document).ready(function() {
-	$("#red_header").click(function() {
-		$("header").css("color", "#FF0000");
-	});
+$('#red_header').on('click', () => {
+  $('header').css('color', 'red');
 });

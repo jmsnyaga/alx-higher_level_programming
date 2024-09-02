@@ -1,12 +1,11 @@
-#!/usr/bin/node
+/* with jQuery
+$(document).ready(function () {
+    $('header').css('color', 'red');
+    console.log($('header').text())
+});
+*/
 
-document.addEventListener("DOMContentLoaded", function() {
-
-	const header = document.querySelector('header');
-
-	if (header) {
-		header.style.color = '#FF0000';
-	} else {
-		console.log("Header element not found.");
-	}
+// without jQuery
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('header').style.color = 'red';
 });

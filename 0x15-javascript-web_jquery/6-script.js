@@ -1,7 +1,3 @@
-#!/usr/bin/node
-
-$(document).ready(function() {
-	$("#update_header").click(function() {
-		$("header h1").text("New Header!!!");
-	});
+$('#update_header').on('click', () => {
+  $('header').text('New Header!!!');
 });
